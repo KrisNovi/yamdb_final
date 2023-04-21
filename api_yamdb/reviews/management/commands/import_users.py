@@ -1,10 +1,9 @@
-﻿from csv import DictReader
+﻿import os.path
+from csv import DictReader
+
 from django.conf import settings
-import os.path
 from django.core.management import BaseCommand
-
 from reviews.models import User
-
 
 ALREDY_LOADED_ERROR_MESSAGE = """
 If you need to reload the data from the CSV file,

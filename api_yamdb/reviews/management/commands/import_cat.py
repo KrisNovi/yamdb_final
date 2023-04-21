@@ -1,9 +1,7 @@
 ﻿from csv import DictReader
 
 from django.core.management import BaseCommand
-
 from reviews.models import Category
-
 
 ALREDY_LOADED_ERROR_MESSAGE = """
 If you need to reload the child data from the CSV file,

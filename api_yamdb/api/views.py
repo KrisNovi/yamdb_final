@@ -1,32 +1,24 @@
+from api.filters import TitleFilter
+from api.permissions import IsAdminModeratorOrReadOnly, IsRoleAdmin
+from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.db.models import Avg
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status, permissions
-from rest_framework import mixins, viewsets
-from rest_framework.decorators import api_view, action
+from rest_framework import filters, mixins, permissions, status, viewsets
+from rest_framework.decorators import action, api_view
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-
-from api.filters import TitleFilter
-from api.permissions import IsRoleAdmin, IsAdminModeratorOrReadOnly
-from django.conf import settings
-from reviews.models import Category, Genre, Title, Review
+from reviews.models import Category, Genre, Review, Title
 from users.models import User
-from .serializers import (
-    UserSerializer,
-    CategorySerializer,
-    GenreSerializer,
-    TitleSerializerPost,
-    TitleSerializerGet,
-    ReviewSerializer,
-    CommentSerializer,
-    SingUpSerializer,
-    TokenSerializer
-)
+
+from .serializers import (CategorySerializer, CommentSerializer,
+                          GenreSerializer, ReviewSerializer, SingUpSerializer,
+                          TitleSerializerGet, TitleSerializerPost,
+                          TokenSerializer, UserSerializer)
 
 
 class ListCreateDestroyViewSet(
