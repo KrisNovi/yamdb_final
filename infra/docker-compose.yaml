@@ -9,7 +9,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: krisnovi/api_yamdb:v1.11.04
+    image: krisnovi/api_yamdb:v2.26.04
     restart: always
     volumes:
       - static_value:/app/static/

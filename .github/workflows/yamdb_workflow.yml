@@ -29,8 +29,7 @@ jobs:
         python -m flake8
         # запуск pytest
         pytest
-        # перейти в папку, содержащую manage.py — 
-        #<корневая_папка_infra_actions>/<папка_проекта>/manage.py
+        # перейти в папку, содержащую manage.py
         cd api_yamdb/
         # запустить написанные разработчиком тесты
         python manage.py test
